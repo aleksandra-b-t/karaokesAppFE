@@ -1,0 +1,31 @@
+#song-card {
+    margin-top: 40px;
+    background: transparent;
+    color: #4E4E50;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    font-weight: bolder;
+  
+}
+
+#song-card1 {
+    background: #1A1A1D;
+    color: #C3073F;
+    border-style: groove;
+    border-width: medium;
+    border-color:transparent
+}
+.sing {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: right;
+    position: relative;
+    background-color: #4E4E50;
+    border-radius: 10px;
+}
+.fav {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: right;
+    position: relative;
+    background-color: #5f5f61;
+    border-radius: 10px;
+}
