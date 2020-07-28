@@ -7,20 +7,54 @@ import './LogIn.css'
 class LogIn extends React.Component {
 
     state= {
+        isNewUser: false,
         name: '',
         password: '',
+        confirmation: '',
     }
-    render() {
-        return(
-            <div>
-                <form className='logIn'>
-                    <label> Name: <input className='name' type="text" name="name" />
-                    </label><br></br>
-                    <label> Password: <input className='password' type="text" name="password" />
-                    </label>
-                    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet" />
-                    <div id="btn"><span class="noselect">Submit</span><div id="circle"></div></div>
-                </form>
+
+    toggleNewUser = () => this.setState(prevState => ({ isNewUser: !prevState.isNewUser, password: '', name: '', confirmation: '' }))
+    handleChange = e => this.setState({ [e.target.name]: e.target.value })
+
+    handleSubmit = e => {
+        const { isNewUser, password, confirmation} = this.state;
+        isNewUser 
+        ? password === confirmation ? this.props.history.push('/songs') : alert('try again!')
+            : this.props.history.push('/songs')
+    }
+
+    renderLogin = () => {
+        const { name, password } = this.state;
+        return (
+            <>
+                <input name="name" placeholder="Name" value={name} onChange={this.handleChange}/>
+                <input name="password" placeholder="Password" type="password" value={password} onChange={this.handleChange}/>
+            </>
+        )
+    }
+    renderSignup = () => {
+        const { password, name, confirmation } = this.state;
+        return (
+            <>
+                <input name="name" placeholder="Name" value={name} onChange={this.handleChange}/>
+                <input name="password" placeholder="Password" type="password" value={password} onChange={this.handleChange}/>
+                <input name="confirmation" placeholder="Confirm Password"  type="password" value={confirmation} onChange={this.handleChange}/>
+            </>
+        )
+    }
+    
+    
+    
+    
+    render(){
+        let { isNewUser } = this.state;
+        console.log('IN AUTH', this.props.history) // routerProps are POWERFUL!!!
+        return (
+            <div className="simple-flex-col">
+                <h3>{isNewUser ? 'Sign Up' : 'Login'}</h3>
+                { isNewUser ? this.renderSignup() : this.renderLogin() }
+                <button type="submit" onClick={this.handleSubmit}>Submit</button>
+                <div onClick={this.toggleNewUser}>{isNewUser ? "Login Instead" : "Sign Up Instead"}</div>
             </div>
         )
     }

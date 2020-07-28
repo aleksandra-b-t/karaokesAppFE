@@ -1,6 +1,6 @@
 import React from 'react'
-import SongsList from './SongsList'
-import FavList from './FavList'
+import SongsList from './components/SongsList'
+import FavList from './components/FavList'
 import {Row,Col} from 'react-bootstrap'
 
 
