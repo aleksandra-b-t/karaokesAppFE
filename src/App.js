@@ -17,10 +17,10 @@ function App() {
       <NavBar />
       <Switch>
         <Route path="/songs/:id" render={(routerProps)=> <Karaoke {...routerProps} /> }/>
-        <Route path="/login" component={LogIn}/>
         <Route path="/home" render={(routerProps)=> <UserPage {...routerProps} /> }/>
         <Route path="/favorites" render={(routerProps)=> <FavList {...routerProps} /> }/>
         <Route path="/songs" render={(routerProps)=> <SongsContainer {...routerProps} /> }/>
+        <Route path="/" component={LogIn}/>
         {/* <Route path="/songs" render={(routerProps)=> <SongsList {...routerProps} /> }/> */}
       </Switch>
     </div>
