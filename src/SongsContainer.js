@@ -10,7 +10,6 @@ const SongsContainer = () => {
         <div>
             <Row>
                 <Col md={{ span: 4, offset: 1 }}><SongsList /></Col>
-                {/* <Col md={{ span: 4, offset: 1 }}><FavList /></Col> */}
             </Row>
         </div>
     )

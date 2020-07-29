@@ -21,9 +21,9 @@ const NavBar = () => {
           </Navbar.Brand>
           <div className="ml-auto">
             
-              <Button className='button-1' variant="outline-secondary" ><Link to="/user">My Account</Link></Button>{' '}
+              <Button className='button-1' variant="outline-secondary" ><Link to="/home">Home</Link></Button>{' '}
               <Button className='button-2' variant="outline-secondary" ><Link to="/favorites">My Favorites</Link></Button>{' '}
-              <Button className='button-3' variant="outline-secondary" ><Link to="/all">All Songs</Link></Button>{' '}
+              <Button className='button-3' variant="outline-secondary" ><Link to="/songs">All Songs</Link></Button>{' '}
               <Button className='button-4' variant="outline-secondary"><Link to="/login">Log In</Link></Button>{' '}
             
           </div>

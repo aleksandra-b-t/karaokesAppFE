@@ -18,10 +18,10 @@ function App() {
       <Switch>
         <Route path="/songs/:id" render={(routerProps)=> <Karaoke {...routerProps} /> }/>
         <Route path="/login" component={LogIn}/>
-        <Route path="/user" render={(routerProps)=> <UserPage {...routerProps} /> }/>
+        <Route path="/home" render={(routerProps)=> <UserPage {...routerProps} /> }/>
         <Route path="/favorites" render={(routerProps)=> <FavList {...routerProps} /> }/>
-        <Route path="/all" render={(routerProps)=> <SongsContainer {...routerProps} /> }/>
-        <Route path="/songs" render={(routerProps)=> <SongsList {...routerProps} /> }/>
+        <Route path="/songs" render={(routerProps)=> <SongsContainer {...routerProps} /> }/>
+        {/* <Route path="/songs" render={(routerProps)=> <SongsList {...routerProps} /> }/> */}
       </Switch>
     </div>
   );
