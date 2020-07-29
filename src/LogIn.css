@@ -1,4 +1,4 @@
-
-
-  
-  
+body { 
+    background: url("/logInBackground.jpg") no-repeat;
+    background-size: cover;
+}

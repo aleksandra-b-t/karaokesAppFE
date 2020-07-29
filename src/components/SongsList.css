@@ -5,27 +5,32 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     font-weight: bolder;
+    height: 1000px;
+    width: 1000px;
+    overflow: scroll;
   
 }
 
 #song-card1 {
-    background: #1A1A1D;
-    color: #C3073F;
+    width: 700px;
+    margin-left: 30px;
+    background: transparent;
+    color: blanchedalmond;
     border-style: groove;
     border-width: medium;
-    border-color:transparent
+    border-color: black;
 }
 .sing {
     font-family: Arial, Helvetica, sans-serif;
-    margin: right;
-    position: relative;
-    background-color: #4E4E50;
+    right: 5px;
+    position: absolute;
+    background-color: #f14ebd;
     border-radius: 10px;
 }
 .fav {
     font-family: Arial, Helvetica, sans-serif;
-    margin: right;
-    position: relative;
-    background-color: #5f5f61;
+    right: 80px;
+    position: absolute;
+    background-color:#4ef18f;
     border-radius: 10px;
 }

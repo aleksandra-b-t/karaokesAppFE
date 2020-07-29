@@ -8,17 +8,36 @@ const choosen = (e) => {
     console.log(e.target)
     // return ( <ReactPlayer )
 }
+// let id = this.props.match.params.id
 
 
-const Karaoke = () => {
 
+class Karaoke extends React.Component {
+    state = {
+        song: {}
+    }
+
+ id = this.props.match.params.id
+
+componentDidMount(){
+    fetch(`http://localhost:3000/songs/${this.id}`).then(r => r.json()).then(song => {this.setState({song})})
+}
+
+
+render(){
+    // let theSong = this.state.songs.find(song => {return song.id === this.props.match.params.id})
+    // console.log(this.props.match.params.id)
+    // console.log(this.state.songs)
+    console.log(this.state.song.youtubeId)
+    const {youtubeId} = this.state.song
 return(
     <div>
         <ReactPlayer id='carouse-form'
-                            url="https://www.youtube.com/watch?v=an0JKXnnrAY"
+                            url={`https://www.youtube.com/watch?v=${youtubeId}`}
                     />
         <div id='carouse-form' onClick={choosen}>
-            <Carousel >
+            <p>You may also like: </p>
+            {/* <Carousel >
                 <Carousel.Item className='video'>
                     <ReactPlayer
                             url="https://www.youtube.com/watch?v=an0JKXnnrAY"
@@ -48,10 +67,11 @@ return(
                         <p>Rhianna & Mikki Ekko</p>
                         </Carousel.Caption>
                 </Carousel.Item>
-            </Carousel>
+            </Carousel> */}
         </div>
     </div>
     )
+}
 }
 
 export default Karaoke
