@@ -11,20 +11,67 @@ import { Route, Switch} from 'react-router'
 
 
 
-function App() {
-  return (
-    <div>
-      <NavBar />
-      <Switch>
-        <Route path="/songs/:id" render={(routerProps)=> <Karaoke {...routerProps} /> }/>
-        <Route path="/login" component={LogIn}/>
-        <Route path="/home" render={(routerProps)=> <UserPage {...routerProps} /> }/>
-        <Route path="/favorites" render={(routerProps)=> <FavList {...routerProps} /> }/>
-        <Route path="/songs" render={(routerProps)=> <SongsContainer {...routerProps} /> }/>
-        {/* <Route path="/songs" render={(routerProps)=> <SongsList {...routerProps} /> }/> */}
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    currentUser: null
+  }
+
+  componentDidMount() {
+    const token = localStorage.token
+    if(token) {
+      fetch("http://localhost:3000/auto_login", {
+        headers: {
+          "Authorization": token
+        }
+      })
+      .then(res => res.json())
+      .then(res => {
+        if(res.errors) {
+          alert(res.errors)
+        } else {
+          this.setState({ currentUser: res})
+        }
+      })
+    }
+
+  }
+
+  setUser = res => {
+    console.log(res);
+    this.setState(
+      { currentUser: res.user },
+      () => {
+        localStorage.token = res.token
+        this.props.history.push(`user/${res.user.id}`)
+      }
+    )
+  }
+
+  logout = () => {
+    this.setState(
+      { currentUser: null },
+      () => {
+        localStorage.removeItem("token")
+        this.props.history.push("/login")
+      }
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        <NavBar />
+        <Switch>
+          <Route path="/songs/:id" render={(routerProps)=> <Karaoke {...routerProps} /> }/>
+          <Route path="/login" render={routerProps => <LogIn {...routerProps} setUser={this.setUser} /> }/>
+          <Route path="/user/:id" render={(routerProps)=> <UserPage {...routerProps} /> }/>
+          <Route path="/favorites" render={(routerProps)=> <FavList {...routerProps} /> }/>
+          <Route path="/songs" render={(routerProps)=> <SongsContainer {...routerProps} /> }/>
+          {/* <Route path="/songs" render={(routerProps)=> <SongsList {...routerProps} /> }/> */}
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;

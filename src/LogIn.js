@@ -16,11 +16,63 @@ class LogIn extends React.Component {
     toggleNewUser = () => this.setState(prevState => ({ isNewUser: !prevState.isNewUser, password: '', name: '', confirmation: '' }))
     handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
+    postUser = () => {
+        const { name, password, confirmation} = this.state;
+        if (password === confirmation) {
+            fetch("http://localhost:3000/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({name: name, password: password})
+            })
+            .then(res => res.json())
+            .then(res => {
+                if (res.errors) {
+                    alert(res.errors)
+                } else {
+                    this.props.setUser(res)
+                }
+            })
+        } else {
+            alert("passwords dont match")
+        }
+    }
+
+
+    loginUser() {
+        const { name, password } = this.state;
+        fetch("http://localhost:3000/login",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({name, password})
+        })
+        .then(res =>  res.json())
+        .then(res => {
+            if (res.errors) {
+                alert(res.errors)
+            } else {
+                this.props.setUser(res)
+            }
+        })
+    }
+
+
     handleSubmit = e => {
-        const { isNewUser, password, confirmation} = this.state;
-        isNewUser 
-        ? password === confirmation ? this.props.history.push('/songs') : alert('try again!')
-            : this.props.history.push('/songs')
+        if (this.state.isNewUser) {
+            this.postUser()
+            console.log("create user");
+        } else {
+            this.loginUser()
+            console.log("login user");
+        }
+        // isNewUser 
+        // ? password === confirmation ? this.props.history.push('/songs') : alert('try again!')
+        //     : this.props.history.push('/songs')
     }
 
     renderLogin = () => {
@@ -48,7 +100,7 @@ class LogIn extends React.Component {
     
     render(){
         let { isNewUser } = this.state;
-        console.log('IN AUTH', this.props.history) // routerProps are POWERFUL!!!
+        // console.log('IN AUTH', this.props.history) // routerProps are POWERFUL!!!
         return (
             <div className="simple-flex-col">
                 <h3>{isNewUser ? 'Sign Up' : 'Login'}</h3>
