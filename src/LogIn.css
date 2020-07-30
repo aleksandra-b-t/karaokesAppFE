@@ -1,4 +1,30 @@
 body { 
-    background: url("/background.jpg") no-repeat;
+    /* background: url("/background.jpg") no-repeat; */
+    /* background: url("/band.jpg") no-repeat; */
+    /* background: url("/concert.jpg") no-repeat; */
+    background: url("/pinkmic.jpg") no-repeat;
     background-size: cover;
+}
+
+.simple-flex-col {
+    margin: 10px;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+button {
+    background-color: #5BC0BE;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #FFF;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    border-radius: 10px;
+}
+
+#simple-flex-col {
+    margin-left: 1%;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    
 }

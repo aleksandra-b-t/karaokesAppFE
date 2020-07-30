@@ -4,17 +4,16 @@ import {Button} from 'react-bootstrap';
 import './NavBar.css'
 import {Link} from 'react-router-dom'
 import { Route, Switch} from 'react-router'
-const NavBar = () => {
 
+const NavBar = () => {
     return(
-        
     <Navbar className='nav-bar' bg="navyblue" variant="dark">
         <Navbar.Brand href="#home">
           <img
             alt=""
-            src="./logo.jpg"
-            width="230"
-            height="100"
+            src="./logo.png"
+            width="280"
+            height="80"
             className="d-inline-block align-top"
           />{' '}
           </Navbar.Brand>

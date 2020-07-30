@@ -37,7 +37,7 @@ render(){
     const {youtubeId, id} = this.state.song
 return(
     <div>
-        {/* <img src='/letsing.png'  alt="letsing" id='sing'/> */}
+        <img src='/shine.png'  alt="letsing" id='sing'/>
         
         <ReactPlayer id='carouse-form'
                             url={`https://www.youtube.com/watch?v=${youtubeId}`}

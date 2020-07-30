@@ -11,15 +11,13 @@
     margin-left: 30px;
     background: transparent;
     color: blanchedalmond;
-    border-style: groove;
-    border-width: medium;
-    border-color: black
+    
 }
 .sing {
     font-family: Arial, Helvetica, sans-serif;
     right: 5px;
     position: absolute;
-    background-color: #f14ebd;
+    background-color: #5BC0BE;
     border-radius: 10px;
 }
 #song-card2 {

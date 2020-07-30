@@ -53,10 +53,10 @@ class UserPage extends  React.Component{
                 And why does it feel so good?</p>
             </div>
             <div> 
-                
+            <Button className='button-c' variant="outline-secondary" ><Link to="/songs">Start Sing !</Link></Button>{' '}
                 <Button className='button-a' variant="outline-secondary" onClick={this.toggleEdit}>Edit my profile</Button>{' '}
                 <Button className='button-b' variant="outline-secondary" onClick={this.toggleDelete}>Delete my profile</Button>{' '}
-                <Button className='button-c' variant="outline-secondary" ><Link to="/songs">Start Sing !</Link></Button>{' '}
+                
             </div>
             {renderEdit ? this.renderEditForm() : null}<br></br>
             {deleteMe ? alert('Are you sure?') : null}

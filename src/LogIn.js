@@ -26,20 +26,20 @@ class LogIn extends React.Component {
     renderLogin = () => {
         const { name, password } = this.state;
         return (
-            <>
+            <div id="simple-flex-col">
                 <input name="name" placeholder="Name" value={name} onChange={this.handleChange}/>
                 <input name="password" placeholder="Password" type="password" value={password} onChange={this.handleChange}/>
-            </>
+            </div>
         )
     }
     renderSignup = () => {
         const { password, name, confirmation } = this.state;
         return (
-            <>
+            <div id="simple-flex-col">
                 <input name="name" placeholder="Name" value={name} onChange={this.handleChange}/>
                 <input name="password" placeholder="Password" type="password" value={password} onChange={this.handleChange}/>
                 <input name="confirmation" placeholder="Confirm Password"  type="password" value={confirmation} onChange={this.handleChange}/>
-            </>
+            </div>
         )
     }
     
@@ -48,7 +48,6 @@ class LogIn extends React.Component {
     
     render(){
         let { isNewUser } = this.state;
-        console.log('IN AUTH', this.props.history) // routerProps are POWERFUL!!!
         return (
             <div className="simple-flex-col">
                 <h3>{isNewUser ? 'Sign Up' : 'Login'}</h3>
