@@ -10,6 +10,15 @@
     overflow: scroll;
   
 }
+#song-list {
+    margin-left: 0px;
+    background: transparent;
+    color: blanchedalmond;
+    position: absolute;
+    font-size: larger;
+    font-family: Trebuchet MS, sans-serif;
+    margin-top: 55px;
+}
 
 #song-card1 {
     width: 700px;

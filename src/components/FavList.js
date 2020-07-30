@@ -59,7 +59,7 @@ class FavList extends React.Component {
         return(
             
             <ListGroup variant="dark" id='user-fav'><br></br><br></br>
-                Here is your favorites songs!<br></br><br></br>
+                Here is your a list of your favorites songs!<br></br><br></br>
                 <label>
                     Search: 
                         <input

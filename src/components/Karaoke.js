@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactPlayer from "react-player"
-import {Carousel} from 'react-bootstrap'
+import {Carousel, Navbar} from 'react-bootstrap'
 import './Karaoke.css'
+
+
 
 const choosen = (e) => {
     
@@ -14,7 +16,8 @@ const choosen = (e) => {
 
 class Karaoke extends React.Component {
     state = {
-        song: {}
+        song: {},
+        songs: []
     }
 
  id = this.props.match.params.id
@@ -22,52 +25,38 @@ class Karaoke extends React.Component {
 componentDidMount(){
     fetch(`http://localhost:3000/songs/${this.id}`).then(r => r.json()).then(song => {this.setState({song})})
 }
-
+// componentDidMount(){
+// fetch(`http://localhost:3000/songs`).then(r => r.json()).then(songs => {this.setState({songs})})
+// }
 
 render(){
     // let theSong = this.state.songs.find(song => {return song.id === this.props.match.params.id})
     // console.log(this.props.match.params.id)
     // console.log(this.state.songs)
-    console.log(this.state.song.youtubeId)
-    const {youtubeId} = this.state.song
+    //console.log(this.state.song.youtubeId)
+    const {youtubeId, id} = this.state.song
 return(
     <div>
+        {/* <img src='/letsing.png'  alt="letsing" id='sing'/> */}
+        
         <ReactPlayer id='carouse-form'
                             url={`https://www.youtube.com/watch?v=${youtubeId}`}
                     />
         <div id='carouse-form' onClick={choosen}>
-            <p>You may also like: </p>
-            {/* <Carousel >
+            {/* <p>You may also like: </p>
+            <Carousel >
+            {this.state.songs.map(song1 => 
                 <Carousel.Item className='video'>
-                    <ReactPlayer
-                            url="https://www.youtube.com/watch?v=an0JKXnnrAY"
-                    />
-                    <Carousel.Caption>
-                    <h3>Dance Monkey</h3>
-                    <p>Tones $ I</p>
-                    </Carousel.Caption>
+                <ReactPlayer
+                        url={`https://www.youtube.com/watch?v=an0JKXnnrAY${song1.youtubeId}`}
+                />
+                <Carousel.Caption>
+                <h3>{song1.title}</h3>
+                <p>{song1.genre}</p>
+                </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item className='video'>
-                    <ReactPlayer 
-                        url="https://www.youtube.com/watch?v=VHpK1i6XnkY"
-                    />
-
-                    <Carousel.Caption>
-                    <h3>Back to December</h3>
-                    <p>Taylor Swift</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item className='video'>
-                    <ReactPlayer 
-                        url="https://www.youtube.com/watch?v=bhGqtMsp0-w"
-                    />
-
-                        <Carousel.Caption>
-                        <h3>Stay</h3>
-                        <p>Rhianna & Mikki Ekko</p>
-                        </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel> */}
+            )}
+            </Carousel>  */}
         </div>
     </div>
     )

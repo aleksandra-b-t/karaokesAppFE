@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav} from 'react-bootstrap';
+import {Navbar, Nav, Brand} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import './NavBar.css'
 import {Link} from 'react-router-dom'
@@ -12,12 +12,11 @@ const NavBar = () => {
         <Navbar.Brand href="#home">
           <img
             alt=""
-            src="./mic0.jpg"
-            width="30"
-            height="30"
+            src="./logo.jpg"
+            width="230"
+            height="100"
             className="d-inline-block align-top"
           />{' '}
-          Karaoke
           </Navbar.Brand>
           <div className="ml-auto">
             

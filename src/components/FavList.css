@@ -1,14 +1,10 @@
 #user-fav {
-    left: 0px;
-    width: 300px;
-    margin-left: 30px;
+    margin-left: 130px;
     background: transparent;
     color: blanchedalmond;
-    border-style: groove;
-    border-width: large;
-    border-color: black;
     position: absolute;
     font-size: larger;
+    font-family: Trebuchet MS, sans-serif;
 }
 #user-fav1 {
     width: 700px;
