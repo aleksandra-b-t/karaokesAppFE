@@ -20,9 +20,6 @@ class SongsList extends React.Component {
   handleChange = (e) => this.setState({ search: e.target.value });
 
   handleSong = (id) => { this.props.history.push(`/songs/${id}`)}
-  
-//   const id = this.props.match.params.id
-  
 
   render() {
     // console.log(this.state.songsList)
