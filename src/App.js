@@ -71,7 +71,6 @@ class App extends React.Component {
       </div>
     );
   }
->>>>>>> malcolm
 }
 
 export default App;
