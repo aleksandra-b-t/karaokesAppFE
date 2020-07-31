@@ -4,6 +4,7 @@ body {
     /* background: url("/concert.jpg") no-repeat; */
     background: url("/pinkmic.jpg") no-repeat;
     background-size: cover;
+    min-height: 100vh;
 
 }
 

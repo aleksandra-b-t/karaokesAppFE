@@ -6,7 +6,6 @@ import FavList from './components/FavList'
 import Karaoke from './components/Karaoke'
 import SongsContainer from './SongsContainer'
 import UserPage from './UserPage'
-import SongsList from './components/SongsList'
 import { Route, Switch} from 'react-router'
 
 
@@ -28,7 +27,7 @@ class App extends React.Component {
         if(res.errors) {
           alert(res.errors)
         } else {
-          this.setState({ currentUser: res})
+          this.setState({ currentUser: res })
         }
       })
     }
@@ -59,13 +58,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar logout={this.logout} user={this.state.currentUser}/>
         <Switch>
           <Route path="/songs/:id" render={(routerProps)=> <Karaoke {...routerProps} /> }/>
-          <Route path="/login" render={routerProps => <LogIn {...routerProps} setUser={this.setUser} /> }/>
-          <Route path="/user/:id" render={(routerProps)=> <UserPage {...routerProps} /> }/>
+          <Route path="/user/:id" render={(routerProps)=> <UserPage {...routerProps} user={this.state.currentUser} /> }/>
           <Route path="/favorites" render={(routerProps)=> <FavList {...routerProps} /> }/>
-          <Route path="/songs" render={(routerProps)=> <SongsContainer {...routerProps} /> }/>
+          <Route path="/songs" render={(routerProps)=> <SongsContainer {...routerProps} user={this.state.currentUser} /> }/>
+          <Route path="/" render={routerProps => <LogIn {...routerProps} setUser={this.setUser} /> }/>
           {/* <Route path="/songs" render={(routerProps)=> <SongsList {...routerProps} /> }/> */}
         </Switch>
       </div>

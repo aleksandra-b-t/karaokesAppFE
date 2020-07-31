@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactPlayer from "react-player"
-import {Carousel, Navbar} from 'react-bootstrap'
 import './Karaoke.css'
 
 
@@ -8,11 +7,7 @@ import './Karaoke.css'
 const choosen = (e) => {
     
     console.log(e.target)
-    // return ( <ReactPlayer )
 }
-// let id = this.props.match.params.id
-
-
 
 class Karaoke extends React.Component {
     state = {
@@ -39,9 +34,9 @@ return(
     <div>
         <img src='/shine.png'  alt="letsing" id='sing'/>
         
-        <ReactPlayer id='carouse-form'
-                            url={`https://www.youtube.com/watch?v=${youtubeId}`}
-                    />
+        <ReactPlayer 
+            id='carouse-form'
+            url={`https://www.youtube.com/watch?v=${youtubeId}`} />
         <div id='carouse-form' onClick={choosen}>
             {/* <p>You may also like: </p>
             <Carousel >

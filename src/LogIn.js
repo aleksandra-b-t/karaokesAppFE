@@ -1,7 +1,4 @@
 import React from 'react';
-import { Form, Col, Card } from 'react-bootstrap';
-//import './App.css';
-//import logInBackground from '/logInBackground.jpg'
 import './LogIn.css'
 
 class LogIn extends React.Component {

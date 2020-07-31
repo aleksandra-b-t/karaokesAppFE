@@ -9,6 +9,10 @@ class SongsList extends React.Component {
     search: "",
   };
 
+
+  constructor(props) {
+    super()
+  }
   componentDidMount() {
     fetch("http://localhost:3000/songs")
       .then((r) => r.json())
@@ -20,9 +24,28 @@ class SongsList extends React.Component {
   handleChange = (e) => this.setState({ search: e.target.value });
 
   handleSong = (id) => { this.props.history.push(`/songs/${id}`)}
+  
+//   const id = this.props.match.params.id
+  
+  addToFavorites = songId => {
+    fetch("http://localhost:3000/favorites",
+      {
+        method: "POST",
+        headers: { 
+          "Authorization": localStorage.token,
+          "Content-Type": "Application/json",
+          "Accept": "Application/json"
+        },
+        body: JSON.stringify({
+          user_id: this.props.user.id,
+          song_id: songId
+        })
+      }
+    )
+    .then(res => console.log)
+  }
 
   render() {
-    // console.log(this.state.songsList)
     let filteredSongs = this.state.songsList.filter((song) =>
       song.title.toLowerCase().includes(this.state.search.toLowerCase())
     );
@@ -42,12 +65,12 @@ class SongsList extends React.Component {
         </label>
         <div id="song-card">
         {filteredSongs.map((song, index) => (
-          <ListGroup.Item id="song-card1" >
+          <ListGroup.Item key={song.id} id="song-card1" >
                
             {song.title} <br></br>
             <small> ({song.genre}) </small>
             <button className="sing" onClick={() => this.handleSong(song.id)} >Sing!</button>{" "}
-            <button className="fav" > Fav </button>
+            <button className="fav" onClick={() => { this.addToFavorites(song.id) }} > Fav </button>
           </ListGroup.Item>
         ))}
         </div>

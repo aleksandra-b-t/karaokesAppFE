@@ -1,15 +1,14 @@
 import React from 'react'
-import SongsList from './components/SongsList'
-import FavList from './components/FavList'
-import {Row,Col} from 'react-bootstrap'
+import SongsList from './components/SongsList';
+import { Row, Col }  from 'react-bootstrap';
 
 
-const SongsContainer = () => {
+const SongsContainer = (props) => {
     
     return(
         <div>
             <Row>
-                <Col md={{ span: 4, offset: 1 }}><SongsList /></Col>
+                <Col md={{ span: 4, offset: 1 }}><SongsList user={ props.user } /></Col>
             </Row>
         </div>
     )
